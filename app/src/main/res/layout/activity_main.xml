@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <View
+        android:id="@+id/xy_1"
+        android:layout_width="360px"
+        android:layout_height="352.02px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/xy_1"
+        />
+
+    <View
+        android:id="@+id/ellipse_7"
+        android:layout_width="10px"
+        android:layout_height="10px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="40px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="38px"
+        android:background="@drawable/ellipse_7"
+        />
+
+    <View
+        android:id="@+id/ellipse_8"
+        android:layout_width="10px"
+        android:layout_height="10px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="226px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="198px"
+        android:background="@drawable/ellipse_8"
+        />
+
+    <View
+        android:id="@+id/ellipse_9"
+        android:layout_width="10px"
+        android:layout_height="10px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="118px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="226px"
+        android:background="@drawable/ellipse_9"
+        />
+
+    <View
+        android:id="@+id/ellipse_10"
+        android:layout_width="10px"
+        android:layout_height="10px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="279px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65px"
+        android:background="@drawable/ellipse_10"
+        />
+
+</RelativeLayout>
