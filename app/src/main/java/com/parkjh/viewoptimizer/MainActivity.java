@@ -2,8 +2,12 @@ package com.parkjh.viewoptimizer;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
     private View mP4;
 
     private View mXY;
+
+    private TextView mT1;
+    private TextView mT2;
+    private TextView mT3;
+    private TextView mT4;
+
+    private List<View> opimizerViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
         mXY = findViewById(R.id.xy_1);
 
-        mViewOptimizer.optimize(mP1);
-        mViewOptimizer.optimize(mP2);
-        mViewOptimizer.optimize(mP3);
-        mViewOptimizer.optimize(mP4);
-        mViewOptimizer.optimize(mXY);
+        mT1 = findViewById(R.id.text1);
+        mT2 = findViewById(R.id.text2);
+        mT3 = findViewById(R.id.text3);
+        mT4 = findViewById(R.id.text4);
+
+        opimizerViews = Arrays.asList(mP1, mP2, mP3, mP4, mXY, mT1, mT2, mT3, mT4);
+        mViewOptimizer.optimize(opimizerViews);
     }
 }

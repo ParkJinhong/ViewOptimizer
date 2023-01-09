@@ -3,11 +3,20 @@ package com.parkjh.viewoptimizer;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Build;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
+import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.Dimension;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 public class ViewOptimizer {
     private static Context mContext;
@@ -26,22 +35,24 @@ public class ViewOptimizer {
     private static void init() {
     }
 
-    public void optimize (View v) {
-        String viewClassSimpleName = v.getClass().getSimpleName().trim().toLowerCase();
-        if (viewClassSimpleName.contains("imageview")) {
-            imageViewOptimize(v);
-        } else if (viewClassSimpleName.contains("textview")) {
-            textViewOptimize(v);
-        } else {
-            imageViewOptimize(v);
+    public void optimize (List<View> v) {
+        for(View each : v) {
+            String viewClassSimpleName = each.getClass().getSimpleName().trim().toLowerCase();
+            if (viewClassSimpleName.contains("imageview")) {
+                optimize((ImageView) each);
+            } else if (viewClassSimpleName.contains("textview")) {
+                optimize((TextView) each);
+            } else {
+                optimize((View) each);
+            }
         }
     }
 
-    private void imageViewOptimize (View v) {
+    public void optimize (ImageView v) {
         ViewGroup.MarginLayoutParams curViewMarginParams = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
         ViewGroup.LayoutParams curViewParams =  v.getLayoutParams();
-        final int curViewWidth = (int) Math.floor(curViewParams.width * mXRatio);
-        final int curViewHeight = (int) Math.floor(curViewParams.height * mXRatio);
+        int curViewWidth = (int) Math.floor(curViewParams.width * mXRatio);
+        int curViewHeight = (int) Math.floor(curViewParams.height * mXRatio);
         curViewParams.width = curViewWidth;
         curViewParams.height = curViewHeight;
         v.setX((int)Math.floor(curViewMarginParams.leftMargin * mXRatio - curViewMarginParams.leftMargin));
@@ -49,11 +60,30 @@ public class ViewOptimizer {
         v.setLayoutParams(curViewParams);
     }
 
-    private void textViewOptimize (View v) {
+    public void optimize (TextView v) {
+        MarginLayoutParams curViewMarginParams = (MarginLayoutParams) v.getLayoutParams();
+        LayoutParams curViewParams =  v.getLayoutParams();
+        int curViewWidth = (int) Math.floor(curViewParams.width * mXRatio);
+        int curViewHeight = (int) Math.floor(curViewParams.height * mXRatio);
+        curViewParams.width = curViewWidth;
+        curViewParams.height = curViewHeight;
+        if (VERSION.SDK_INT >= VERSION_CODES.R) {
+            if(v.getTextSizeUnit() == TypedValue.COMPLEX_UNIT_PX) {
+                v.setTextSize(TypedValue.COMPLEX_UNIT_PX, v.getTextSize() * mXRatio);
+            }
+        } else {
+            v.setTextSize(TypedValue.COMPLEX_UNIT_PX, v.getTextSize() * mXRatio);
+        }
+        v.setX((int)Math.floor(curViewMarginParams.leftMargin * mXRatio - curViewMarginParams.leftMargin));
+        v.setY((int)Math.floor(curViewMarginParams.topMargin * mXRatio - curViewMarginParams.topMargin));
+        v.setLayoutParams(curViewParams);
+    }
+
+    public void optimize (View v) {
         ViewGroup.MarginLayoutParams curViewMarginParams = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
         ViewGroup.LayoutParams curViewParams =  v.getLayoutParams();
-        final int curViewWidth = (int) Math.floor(curViewParams.width * mXRatio);
-        final int curViewHeight = (int) Math.floor(curViewParams.height * mXRatio);
+        int curViewWidth = (int) Math.floor(curViewParams.width * mXRatio);
+        int curViewHeight = (int) Math.floor(curViewParams.height * mXRatio);
         curViewParams.width = curViewWidth;
         curViewParams.height = curViewHeight;
         v.setX((int)Math.floor(curViewMarginParams.leftMargin * mXRatio - curViewMarginParams.leftMargin));

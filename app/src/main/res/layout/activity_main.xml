@@ -24,6 +24,20 @@
         android:layout_marginTop="38px"
         android:background="@drawable/ellipse_7"
         />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="41px"
+        android:layout_height="15px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48px"
+        android:text="A point"
+        android:gravity="top"
+        android:textSize="12px"
+        android:textColor="@color/black"
+        />
+
 
     <View
         android:id="@+id/ellipse_8"
@@ -35,6 +49,20 @@
         android:layout_marginTop="198px"
         android:background="@drawable/ellipse_8"
         />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="116px"
+        android:layout_height="15px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="226px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="75px"
+        android:text="show me the money"
+        android:gravity="top"
+        android:textSize="12px"
+        android:textColor="@color/black"
+        />
+
 
     <View
         android:id="@+id/ellipse_9"
@@ -46,6 +74,20 @@
         android:layout_marginTop="226px"
         android:background="@drawable/ellipse_9"
         />
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="45px"
+        android:layout_height="15px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="103px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="236px"
+        android:text="1+1 2+2"
+        android:gravity="top"
+        android:textSize="12px"
+        android:textColor="@color/black"
+        />
+
 
     <View
         android:id="@+id/ellipse_10"
@@ -56,6 +98,19 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="65px"
         android:background="@drawable/ellipse_10"
+        />
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="15px"
+        android:layout_height="15px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="225px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="210px"
+        android:text="12"
+        android:gravity="top"
+        android:textSize="12px"
+        android:textColor="@color/black"
         />
 
 </RelativeLayout>
